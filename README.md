@@ -8,7 +8,7 @@ Also, the code requires the installation of [hwloc](https://www.open-mpi.org/pro
   * MPI ranks running on cores on the same machien but on different CPU sockets
 * MPI ranks running on cores on the same machine
 
-To measure the relatively inter-machine network communication costs (costs among MPI ranks running on different machines), I first select a representative MPI rank for MPI ranks running on the same machine and then measure the costs among the selected MPI ranks. In other words, we only need one MPI rank for one machine. 
+To measure the relatively inter-machine network communication costs (costs among MPI ranks running on different machines), I first select a representative MPI rank for MPI ranks running on the same machine and then measure the costs among the selected MPI ranks. 
 
 Similary, for inter-socket network communication costs (costs among MPI ranks running on different sockets but on the same machine), I first pick a representative MPI rank for the ranks running on the same socket, and then measure the costs among the selected MPI ranks. Again, we only need one MPI rank for each socket. Note that each machine measures its own inter-socket network communiation costs independently at the same time.
 
