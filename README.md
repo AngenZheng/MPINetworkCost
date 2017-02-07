@@ -9,14 +9,14 @@ Also, the code requires the installation of [hwloc](https://www.open-mpi.org/pro
 
 * MPI ranks runnig on cores of the same machine
   * MPI ranks running on cores of the same CPU socket
-  * MPI ranks running on cores on the same machien but on different CPU sockets
+  * MPI ranks running on cores on the same machine but on different CPU sockets
 * MPI ranks running on cores on the same machine
 
 To measure the relatively inter-machine network communication costs (costs among MPI ranks running on different machines), I first select a representative MPI rank for MPI ranks running on the same machine and then measure the costs among the selected MPI ranks. 
 
 Similary, for inter-socket network communication costs (costs among MPI ranks running on different sockets but on the same machine), I first pick a representative MPI rank for the ranks running on the same socket, and then measure the costs among the selected MPI ranks. Again, we only need one MPI rank for each socket. Note that each machine measures its own inter-socket network communiation costs independently at the same time.
 
-As for the relately intra-socket network communication costs (costs among MPI ranks running on the same CPU socket), we simply measure the all pair-wise network communication costs among mpi ranks running on the same socket. In fact, we only need to measure one pair for all the ranks running on the same socket and use the cost for all the other pairs. 
+As for the relative intra-socket network communication costs (costs among MPI ranks running on the same CPU socket), we simply measure the all pair-wise network communication costs among mpi ranks running on the same socket. In fact, we only need to measure one pair for all the ranks running on the same socket and use the cost for all the other pairs. 
 
 Note that by doing this, we can significantly reduce the measuring time. For example, for a program with 100 processes running on five 20-core machines (one process per core). Each machine has two 10-core socket. The naive solution need to measure the relative network communication costs for (99+1) * 99 / 2 = 4950 process pairs. However, using the above proposed solution, we only need to measure:
 
