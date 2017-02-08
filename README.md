@@ -1,5 +1,5 @@
 # MPINetworkCost
-A piece of code I wrote for measuring the relatively network communication costs among MPI processes. To ensure the correctness of the measured costs, each MPI process should be bound to a core or a hwthread during its lifecycle. This can be achieved via 			
+A piece of code I wrote for measuring the relative network communication costs among MPI processes. To ensure the correctness of the measured costs, each MPI process should be bound to a core or a hwthread during its lifecycle. This can be achieved via 			
 		
 		mpirun --bind-to option 
 
